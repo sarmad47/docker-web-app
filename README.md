@@ -1,5 +1,5 @@
-## Wordpress on Docker
-Wordpress website hosted on Docker.
+## WordPress on Docker
+WordPress website hosted on Docker.
 
 #### Docker Containers
 - WordPress Service
