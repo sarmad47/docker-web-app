@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  # MySQL Service (Database for WordPress)
+  mysqldb:
+    image: mysql:5.7
+    volumes:
+      - mysqldb_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+  # phpmyadmin Service
+  phpmyadmin:
+    depends_on:
+      - mysqldb
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - '8080:80'
+    environment:
+      PMA_HOST: mysqldb
+      MYSQL_ROOT_PASSWORD: wordpress
+      
+  # WordPress Service
+  wordpress:
+    depends_on:
+      - mysqldb
+    image: wordpress:latest
+    ports:
+      - '80:80'
+    restart: always
+    volumes: ['./wordpress_data:/var/www/html']
+    environment:
+      WORDPRESS_DB_HOST: mysqldb:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+
+volumes:
+  mysqldb_data:
+  wordpress_data:
