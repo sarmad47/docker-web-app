@@ -1,7 +1,7 @@
 ## Wordpress on Docker
 Wordpress website hosted on Docker.
 
-##### Docker Containers
+#### Docker Containers
 - WordPress Service
 - MySQL Database Service
 - phpmyadmin Service
