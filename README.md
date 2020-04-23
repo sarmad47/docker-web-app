@@ -7,7 +7,7 @@ Wordpress website hosted on Docker.
 - phpmyadmin Service
 
 #### VPS
-Ubuntu LTS 18.04 EC2 Instance on AWS
+Ubuntu LTS 18.04 EC2 Instance on AWS.
 
 #### Domain
 Domain setup by No-IP Dynamic DNS.
